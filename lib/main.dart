@@ -1,6 +1,5 @@
 import 'package:booker/pages/home.dart';
 import 'package:booker/pages/login.dart';
-import 'package:booker/pages/passworad.dart';
 import 'package:booker/pages/register.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +19,6 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         "/home": (BuildContext context) => Home(),
         '/login': (context) => LoginPage(),
-        '/password': (context) => PasswordPage(),
         '/register': (context) => RegisterNewUserPage()
       },
     );

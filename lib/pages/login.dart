@@ -98,9 +98,15 @@ class LoginPage extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 21, left: 12, right: 12),
+                    padding:
+                        const EdgeInsets.only(top: 21, left: 12, right: 12),
                     child: RaisedButton(
-                      onPressed: () => {},
+                      onPressed: () => {
+                        Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            "/home",
+                            (Route<dynamic> route) => false)
+                      },
                       color: Colors.white,
                       child: Container(
                         alignment: Alignment.center,
@@ -129,7 +135,7 @@ class LoginPage extends StatelessWidget {
                         child: RichText(
                           text: TextSpan(
                               style: TextStyle(
-                                  fontSize: 29.0,
+                                  fontSize: 21.0,
                                   color: Colors.white,
                                   decoration: TextDecoration.underline,
                                   fontWeight: FontWeight.bold),

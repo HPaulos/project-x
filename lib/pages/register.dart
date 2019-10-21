@@ -29,21 +29,22 @@ class RegisterNewUserPage extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 21, left: 12, right: 12),
+              padding: const EdgeInsets.only(top: 5, left: 12, right: 12),
               child: Container(
                 alignment: Alignment.center,
                 child: TextField(
+                  inputFormatters: [PhoneNumberInputFormatte()],
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     prefixIcon: Icon(
-                      Icons.person,
+                      Icons.phone,
                       color: Colors.white,
                     ),
-                    hintText: "Your Full Name",
-                    hintStyle: TextStyle(
-                      fontSize: 29.0,
-                      color: Colors.white,
-                    ),
+                    prefixText: " (251) 9",
+                    prefixStyle: TextStyle(
+                        fontSize: 29.0,
+                        color: Color(0xAAFFFFFF),
+                        fontWeight: FontWeight.bold),
                   ),
                   cursorColor: Colors.white,
                   style: TextStyle(
@@ -63,18 +64,17 @@ class RegisterNewUserPage extends StatelessWidget {
               child: Container(
                 alignment: Alignment.center,
                 child: TextField(
-                  inputFormatters: [PhoneNumberInputFormatte()],
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     prefixIcon: Icon(
-                      Icons.phone,
+                      Icons.person,
                       color: Colors.white,
                     ),
-                    prefixText: " (251) 9",
-                    prefixStyle: TextStyle(
-                        fontSize: 29.0,
-                        color: Color(0xAAFFFFFF),
-                        fontWeight: FontWeight.bold),
+                    hintText: "Your Full Name",
+                    hintStyle: TextStyle(
+                      fontSize: 29.0,
+                      color: Colors.white,
+                    ),
                   ),
                   cursorColor: Colors.white,
                   style: TextStyle(
@@ -129,7 +129,7 @@ class RegisterNewUserPage extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding:
-                        const EdgeInsets.only(top: 29, left: 12, right: 12),
+                        const EdgeInsets.only(top: 21, left: 12, right: 12),
                     child: RaisedButton(
                       onPressed: () => {},
                       color: Colors.white,
@@ -160,7 +160,7 @@ class RegisterNewUserPage extends StatelessWidget {
                         child: RichText(
                           text: TextSpan(
                               style: TextStyle(
-                                  fontSize: 29.0,
+                                  fontSize: 21.0,
                                   color: Colors.white,
                                   decoration: TextDecoration.underline,
                                   fontWeight: FontWeight.bold),

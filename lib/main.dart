@@ -1,4 +1,7 @@
 import 'package:booker/pages/home.dart';
+import 'package:booker/pages/home/history.dart';
+import 'package:booker/pages/home/profile.dart';
+import 'package:booker/pages/home/search.dart';
 import 'package:booker/pages/login.dart';
 import 'package:booker/pages/register.dart';
 import 'package:flutter/material.dart';

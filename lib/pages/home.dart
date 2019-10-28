@@ -1,31 +1,26 @@
-import 'package:booker/widget/hotel.dart';
+import 'package:booker/pages/home/history.dart';
+import 'package:booker/pages/home/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class Home extends StatelessWidget {
+import 'home/search.dart';
+
+class Home extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _HomeState();
+  }
+}
+
+class _HomeState extends State<Home> {
+  Widget selected = Search();
+  int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color(0xFFdbdbdb),
-        body: Container(
-          child: ListView(
-            scrollDirection: Axis.vertical,
-            children: <Widget>[
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel()
-            ],
-          ),
-        ),
+        body: selected,
         appBar: AppBar(
           title: Center(
             child: Text(
@@ -40,11 +35,23 @@ class Home extends StatelessWidget {
         ),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Color(0xFF53B4DF),
-          items: const <BottomNavigationBarItem>[
+          onTap: (int index) {
+            setState(() {
+              selectedIndex = index;
+              if (index == 1) {
+                selected = History();
+              } else if (index == 2) {
+                selected = Profile();
+              } else {
+                selected = Search();
+              }
+            });
+          },
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.list,
-                color: Colors.white,
+                color: selectedIndex == 0 ? Colors.black : Colors.white,
                 size: 29,
               ),
               title: Text(
@@ -55,7 +62,7 @@ class Home extends StatelessWidget {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.history,
-                color: Colors.white,
+                color: selectedIndex == 1 ? Colors.black : Colors.white,
                 size: 29,
               ),
               title: Text(
@@ -66,7 +73,7 @@ class Home extends StatelessWidget {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.settings,
-                color: Colors.white,
+                color: selectedIndex == 2 ? Colors.black : Colors.white,
                 size: 29,
               ),
               title: Text(

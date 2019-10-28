@@ -1,5 +1,8 @@
+import 'package:booker/icons/custome_icons.dart';
+import 'package:booker/widget/rate.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 class Hotel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,11 +18,10 @@ class Hotel extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 12),
                 ),
-                height: 150,
+                height: 165,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(29),
-                        topLeft: Radius.circular(29)),
+                    borderRadius:
+                        BorderRadius.only(topLeft: Radius.circular(21)),
                     image: DecorationImage(
                         fit: BoxFit.fill,
                         image: AssetImage("assets/images/room.jpg"),
@@ -30,35 +32,79 @@ class Hotel extends StatelessWidget {
               flex: 2,
               child: Container(
                 alignment: Alignment.topCenter,
-                height: 150,
+                height: 165,
                 child: Column(
                   children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 10, left: 10, right: 10, bottom: 10),
-                          child: Text(
-                            "Hotel Name",
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 19, top: 5, right: 19),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          Text(
+                            "10km away",
                             style: TextStyle(
-                                fontSize: 21,
+                                fontSize: 16,
                                 color: Color(0xFF28A1D8),
                                 fontWeight: FontWeight.bold),
                           ),
-                        ),
+                          Spacer(),
+                          Text(
+                            "100Br",
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Color(0xFF28A1D8),
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 7, right: 7),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          Spacer(),
+                          Text(
+                            "25% Off",
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "(125.0Br)",
+                            style: TextStyle(
+                                decoration: TextDecoration.lineThrough,
+                                fontSize: 16,
+                                color: Colors.redAccent,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Hotel Name",
+                          style: TextStyle(
+                              fontSize: 25,
+                              color: Color(0xFF50B6DE),
+                              fontWeight: FontWeight.bold),
+                        )
                       ],
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.all(5.0),
+                          padding: const EdgeInsets.all(3.0),
                           child: Column(
                             children: <Widget>[
                               Icon(
                                 Icons.wifi,
-                                size: 29,
+                                size: 21,
                               ),
                               Text(
                                 "Wifi",
@@ -71,12 +117,12 @@ class Hotel extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(5.0),
+                          padding: const EdgeInsets.all(3.0),
                           child: Column(
                             children: <Widget>[
                               Icon(
-                                Icons.star,
-                                size: 29,
+                                CustomeIcons.coffee_cup,
+                                size: 21,
                               ),
                               Text(
                                 "Breakfast",
@@ -89,15 +135,15 @@ class Hotel extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(5.0),
+                          padding: const EdgeInsets.all(3.0),
                           child: Column(
                             children: <Widget>[
                               Icon(
-                                Icons.add_alarm,
-                                size: 29,
+                                CustomeIcons.taxi,
+                                size: 21,
                               ),
                               Text(
-                                "Shuttle",
+                                "Pickup",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Color(0xFF28A1D8),
@@ -107,12 +153,12 @@ class Hotel extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(5.0),
+                          padding: const EdgeInsets.all(3.0),
                           child: Column(
                             children: <Widget>[
                               Icon(
-                                Icons.web,
-                                size: 29,
+                                CustomeIcons.washing_machine,
+                                size: 21,
                               ),
                               Text(
                                 "Loundry",
@@ -125,14 +171,31 @@ class Hotel extends StatelessWidget {
                           ),
                         )
                       ],
+                    ),
+                    Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 12),
+                      child: Rate(4.0),
                     )
                   ],
                 ),
                 decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius:
+                            7.0, // has the effect of softening the shadow
+                        spreadRadius:
+                            5.0, // has the effect of extending the shadow
+                        offset: Offset(
+                          7.0, // horizontal, move right 10
+                          7.0, // vertical, move down 10
+                        ),
+                      )
+                    ],
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(29),
-                      bottomRight: Radius.circular(29),
+                      bottomRight: Radius.circular(21),
                     )),
               ),
             )

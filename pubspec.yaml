@@ -21,16 +21,21 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^0.1.2
   provider: ^2.0.0+1
+  
 dev_dependencies:
+  flutter_launcher_icons: "^0.7.3"
   flutter_test:
     sdk: flutter
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/house.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -41,8 +46,13 @@ flutter:
   #  - images/a_dot_ham.jpeg
   assets:
     - assets/images/
-  
- # An image asset can refer to one or more resolution-specific "variants", see
+    - assets/icons/
+
+  fonts:
+    - family: CustomeIcons
+      fonts:
+        - asset: fonts/CustomeIcons.ttf
+  # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages

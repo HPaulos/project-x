@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 
 class Rate extends StatelessWidget {
   final double rate;
+  double fontSize;
 
-  Rate(this.rate);
+  Rate(this.rate, {this.fontSize});
 
   @override
   Widget build(BuildContext context) {
+    if (fontSize == null) {
+      fontSize = 19;
+    }
+
     List<Widget> icons = [];
 
     for (int i = 0; i < 5; i++) {
@@ -14,23 +19,23 @@ class Rate extends StatelessWidget {
         icons.add(Icon(
           Icons.star,
           color: Color(0xFFFE9E25),
-          size: 19,
+          size: this.fontSize,
         ));
       } else {
         icons.add(Icon(
           Icons.star_border,
-          size: 19,
+          size: this.fontSize,
         ));
       }
     }
 
     icons.add(Padding(
-      padding: const EdgeInsets.only(left: 5.0),
+      padding: const EdgeInsets.only(left: 23),
       child: Text(
         rate.toString(),
         style: TextStyle(
           color: Colors.black,
-          fontSize: 19,
+          fontSize: this.fontSize,
         ),
       ),
     ));

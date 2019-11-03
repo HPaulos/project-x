@@ -10,7 +10,7 @@ class RegisterNewUserPage extends StatelessWidget {
       backgroundColor: Color(0xFF28A1D8),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.only(left: 29, right: 29),
+          padding: const EdgeInsets.only(left: 27, right: 27),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

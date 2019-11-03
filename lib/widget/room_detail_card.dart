@@ -1,23 +1,37 @@
 import 'package:booker/icons/custome_icons.dart';
+import 'package:booker/models/hotel.dart';
 import 'package:booker/pages/hotel-detail.dart';
 import 'package:booker/widget/rate.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Hotel extends StatelessWidget {
+class RoomDetailCard extends StatelessWidget {
+  String name, distance, priceAfterDiscount, discountInPercent, originalPrice;
+
+  RoomDetailCard(Hotel hotel, int selectedRoomIndex) {
+    this.name = hotel.name;
+    this.distance = hotel.distance.toString() + "km away";
+    this.priceAfterDiscount =
+        hotel.rooms[selectedRoomIndex].priceAfterDiscount.toString() + "Br";
+    this.discountInPercent =
+        hotel.rooms[selectedRoomIndex].discountInPercent.toString() + "% Off";
+    this.originalPrice =
+        "(" + hotel.rooms[selectedRoomIndex].originalPrice.toString() + "Br)";
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: 12, right: 12, left: 12),
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HotelDetail()),
+        );
+      },
       child: Container(
         alignment: Alignment.center,
-        child: GestureDetector(
-          onTap: (){
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HotelDetail()),
-            );
-          },
+        child: Padding(
+          padding: EdgeInsets.only(top: 12, right: 12, left: 12),
           child: Row(
             children: <Widget>[
               Expanded(
@@ -50,7 +64,7 @@ class Hotel extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             Text(
-                              "10km away",
+                              distance,
                               style: TextStyle(
                                   fontSize: 16,
                                   color: Color(0xFF28A1D8),
@@ -58,7 +72,7 @@ class Hotel extends StatelessWidget {
                             ),
                             Spacer(),
                             Text(
-                              "100Br",
+                              priceAfterDiscount,
                               style: TextStyle(
                                   fontSize: 16,
                                   color: Color(0xFF28A1D8),
@@ -74,14 +88,14 @@ class Hotel extends StatelessWidget {
                           children: <Widget>[
                             Spacer(),
                             Text(
-                              "25% Off",
+                              discountInPercent,
                               style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
                             Text(
-                              "(125.0Br)",
+                              originalPrice,
                               style: TextStyle(
                                   decoration: TextDecoration.lineThrough,
                                   fontSize: 16,
@@ -95,7 +109,7 @@ class Hotel extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            "Hotel Name",
+                            name,
                             style: TextStyle(
                                 fontSize: 25,
                                 color: Color(0xFF50B6DE),

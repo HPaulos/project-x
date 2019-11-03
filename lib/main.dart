@@ -1,8 +1,4 @@
 import 'package:booker/pages/home.dart';
-import 'package:booker/pages/home/history.dart';
-import 'package:booker/pages/home/profile.dart';
-import 'package:booker/pages/home/search.dart';
-import 'package:booker/pages/hotel-detail.dart';
 import 'package:booker/pages/login.dart';
 import 'package:booker/pages/register.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +11,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
           appBarTheme: AppBarTheme(
-        color: Color(0xFF50B6DE),
-      )),
+            color: Color(0xFF50B6DE),
+          ),
+          pageTransitionsTheme: PageTransitionsTheme(builders: {
+            TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+            TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+          })),
       title: 'Gojo',
       debugShowCheckedModeBanner: false,
       home: LoginPage(),

@@ -1,3 +1,4 @@
+import 'package:booker/icons/custome_icons.dart';
 import 'package:booker/widget/rate.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,7 +8,7 @@ class HotelDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFdbdbdb),
+      backgroundColor: Colors.white,
       appBar: AppBar(
           backgroundColor: Color(0xFF53B4DF),
           automaticallyImplyLeading: true,
@@ -41,7 +42,6 @@ class HotelDetail extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  color: Colors.white,
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: Column(
@@ -86,6 +86,88 @@ class HotelDetail extends StatelessWidget {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[Favourite(56)],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(bottom: 23.0, top: 23.0),
+                          child: Wrap(
+                            alignment: WrapAlignment.center,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(7.0),
+                                child: Column(
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.wifi,
+                                      size: 56,
+                                    ),
+                                    Text(
+                                      "Wifi",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Color(0xFF28A1D8),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(7.0),
+                                child: Column(
+                                  children: <Widget>[
+                                    Icon(
+                                      CustomeIcons.coffee_cup,
+                                      size: 56,
+                                    ),
+                                    Text(
+                                      "Breakfast",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Color(0xFF28A1D8),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(7.0),
+                                child: Column(
+                                  children: <Widget>[
+                                    Icon(
+                                      CustomeIcons.taxi,
+                                      size: 56,
+                                    ),
+                                    Text(
+                                      "Pickup",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Color(0xFF28A1D8),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(7.0),
+                                child: Column(
+                                  children: <Widget>[
+                                    Icon(
+                                      CustomeIcons.washing_machine,
+                                      size: 56,
+                                    ),
+                                    Text(
+                                      "Loundry",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Color(0xFF28A1D8),
+                                      ),
+                                    )
+                                  ],
                                 ),
                               )
                             ],

@@ -1,10 +1,28 @@
-import 'package:booker/widget/hotel.dart';
+import 'package:booker/models/hotel.dart';
+import 'package:booker/models/rooml.dart';
+import 'package:booker/widget/room_detail_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Hotel hotel =
+        Hotel(distance: 10.0, name: "Bernos", rate: 4.0, accomodations: [
+      "loundry",
+      "pickup",
+      "bar",
+      "restaurant"
+    ], rooms: [
+      Room(
+        discountInPercent: 25.0,
+        isAvaliable: true,
+        type: "One Bed Room",
+        originalPrice: 250.0,
+      )
+    ]);
+    int selectedRoomIndex = 0;
+
     return Column(
       children: <Widget>[
         new SearchBar(),
@@ -12,18 +30,21 @@ class Search extends StatelessWidget {
           child: ListView(
             scrollDirection: Axis.vertical,
             children: <Widget>[
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
-              Hotel(),
+              RoomDetailCard(hotel, selectedRoomIndex),
+              RoomDetailCard(hotel, selectedRoomIndex),
+              RoomDetailCard(hotel, selectedRoomIndex),
+              RoomDetailCard(hotel, selectedRoomIndex),
+              RoomDetailCard(hotel, selectedRoomIndex),
+              RoomDetailCard(hotel, selectedRoomIndex),
+              RoomDetailCard(hotel, selectedRoomIndex),
+              RoomDetailCard(hotel, selectedRoomIndex),
+              RoomDetailCard(hotel, selectedRoomIndex),
+              RoomDetailCard(hotel, selectedRoomIndex),
+              RoomDetailCard(hotel, selectedRoomIndex),
+              RoomDetailCard(hotel, selectedRoomIndex),
+              RoomDetailCard(hotel, selectedRoomIndex),
+              RoomDetailCard(hotel, selectedRoomIndex),
+              RoomDetailCard(hotel, selectedRoomIndex),
               Padding(
                 padding: EdgeInsets.only(bottom: 10.0),
                 child: Column(),

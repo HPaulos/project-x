@@ -25,7 +25,7 @@ class LoginPage extends StatelessWidget {
                         "Project-X",
                         style: TextStyle(
                             fontSize: 46.0,
-                            color: Colors.white,
+                            color: Color(0xFFF5F5F5),
                             fontWeight: FontWeight.bold),
                       ),
                     )
@@ -55,7 +55,7 @@ class LoginPage extends StatelessWidget {
                             border: InputBorder.none,
                             prefixIcon: Icon(
                               Icons.phone,
-                              color: Colors.white,
+                              color: Color(0xFFF5F5F5),
                             ),
                             prefixText: " (251) 9",
                             prefixStyle: TextStyle(
@@ -63,10 +63,10 @@ class LoginPage extends StatelessWidget {
                                 color: Color(0xAAFFFFFF),
                                 fontWeight: FontWeight.bold),
                           ),
-                          cursorColor: Colors.white,
+                          cursorColor: Color(0xFFF5F5F5),
                           style: TextStyle(
                               fontSize: 23.0,
-                              color: Colors.white,
+                              color: Color(0xFFF5F5F5),
                               fontWeight: FontWeight.bold),
                         ),
                         height: 60.0,
@@ -105,21 +105,21 @@ class LoginPage extends StatelessWidget {
                             hintText: "Your Password",
                             hintStyle: TextStyle(
                                 fontSize: 23.0,
-                                color: Colors.white,
+                                color: Color(0xFFF5F5F5),
                                 fontWeight: FontWeight.bold),
                             prefixIcon: Icon(
                               Icons.lock,
-                              color: Colors.white,
+                              color: Color(0xFFF5F5F5),
                             ),
                             prefixStyle: TextStyle(
                                 fontSize: 23.0,
-                                color: Colors.white,
+                                color: Color(0xFFF5F5F5),
                                 fontWeight: FontWeight.bold),
                           ),
-                          cursorColor: Colors.white,
+                          cursorColor: Color(0xFFF5F5F5),
                           style: TextStyle(
                               fontSize: 23.0,
-                              color: Colors.white,
+                              color: Color(0xFFF5F5F5),
                               fontWeight: FontWeight.bold),
                         ),
                         height: 60.0,
@@ -142,7 +142,7 @@ class LoginPage extends StatelessWidget {
                             Navigator.pushNamedAndRemoveUntil(context, "/home",
                                 (Route<dynamic> route) => false)
                           },
-                          color: Colors.white,
+                          color: Color(0xFFF5F5F5),
                           child: Container(
                             alignment: Alignment.center,
                             child: Text(
@@ -171,7 +171,7 @@ class LoginPage extends StatelessWidget {
                               text: TextSpan(
                                   style: TextStyle(
                                       fontSize: 21.0,
-                                      color: Colors.white,
+                                      color: Color(0xFFF5F5F5),
                                       decoration: TextDecoration.underline,
                                       fontWeight: FontWeight.bold),
                                   text: "Register New User",

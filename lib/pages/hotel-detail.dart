@@ -3,12 +3,13 @@ import 'package:booker/widget/rate.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HotelDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFF5F5F5),
       appBar: AppBar(
           backgroundColor: Color(0xFF53B4DF),
           automaticallyImplyLeading: true,
@@ -48,14 +49,14 @@ class HotelDetail extends StatelessWidget {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 23, right: 23, top: 21),
+                              left: 23, right: 23, top: 19),
                           child: Row(
                             children: <Widget>[
                               Column(
                                 children: <Widget>[
                                   Row(
                                     children: <Widget>[
-                                      Text(
+                                      SelectableText(
                                         "Bernos Hotel",
                                         style: TextStyle(
                                           fontSize: 32,
@@ -93,13 +94,13 @@ class HotelDetail extends StatelessWidget {
                         ),
                         Padding(
                           padding:
-                              const EdgeInsets.only(bottom: 23.0, top: 23.0),
+                              const EdgeInsets.only(bottom: 12.0, top: 12.0),
                           child: Wrap(
                             alignment: WrapAlignment.center,
                             crossAxisAlignment: WrapCrossAlignment.center,
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.all(7.0),
+                                padding: const EdgeInsets.all(5.0),
                                 child: Column(
                                   children: <Widget>[
                                     Icon(
@@ -117,7 +118,7 @@ class HotelDetail extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(7.0),
+                                padding: const EdgeInsets.all(5.0),
                                 child: Column(
                                   children: <Widget>[
                                     Icon(
@@ -135,7 +136,7 @@ class HotelDetail extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(7.0),
+                                padding: const EdgeInsets.all(5.0),
                                 child: Column(
                                   children: <Widget>[
                                     Icon(
@@ -153,7 +154,7 @@ class HotelDetail extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(7.0),
+                                padding: const EdgeInsets.all(5.0),
                                 child: Column(
                                   children: <Widget>[
                                     Icon(
@@ -174,6 +175,60 @@ class HotelDetail extends StatelessWidget {
                           ),
                         ),
                         Padding(
+                          padding: const EdgeInsets.only(
+                              left: 23, right: 23, bottom: 16.0),
+                          child: Row(
+                            children: <Widget>[
+                              Icon(
+                                Icons.location_on,
+                                size: 48,
+                                color: Color(0xFFFE9E25),
+                              ),
+                              Flexible(
+                                child: Text(
+                                  "Infront of Petit Party Kebele 02 ,Debre Birhan, Ethiopia,",
+                                  maxLines: 5,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 19.0,
+                                    fontFamily: 'Roboto',
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 23, right: 23, bottom: 16.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Icon(
+                                Icons.phone_android,
+                                size: 48,
+                                color: Color(0xFFFE9E25),
+                              ),
+                              SelectableText(
+                                "+251 911 7234512",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 27),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  _callPhone('tel:+6419195394');
+                                },
+                                icon: Icon(
+                                  Icons.phone,
+                                  color: Color(0xFF50B6DE),
+                                ),
+                                iconSize: 41,
+                              )
+                            ],
+                          ),
+                        ),
+                        Padding(
                           padding: const EdgeInsets.only(left: 23, right: 23),
                           child: RaisedButton(
                             onPressed: () => {},
@@ -184,7 +239,7 @@ class HotelDetail extends StatelessWidget {
                                 "Book Room",
                                 style: TextStyle(
                                     fontSize: 29.0,
-                                    color: Colors.white,
+                                    color: Color(0xFFF5F5F5),
                                     fontWeight: FontWeight.bold),
                               ),
                               height: 60.0,
@@ -201,6 +256,14 @@ class HotelDetail extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _callPhone(phone) async {
+    if (await canLaunch(phone)) {
+      await launch(phone);
+    } else {
+      throw 'Could not Call Phone';
+    }
   }
 }
 

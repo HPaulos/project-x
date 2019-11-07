@@ -25,7 +25,7 @@ class RegisterNewUserPage extends StatelessWidget {
                         "Project-X",
                         style: TextStyle(
                             fontSize: 46.0,
-                            color: Colors.white,
+                            color: Color(0xFFF5F5F5),
                             fontWeight: FontWeight.bold),
                       ),
                     )
@@ -55,7 +55,7 @@ class RegisterNewUserPage extends StatelessWidget {
                             border: InputBorder.none,
                             prefixIcon: Icon(
                               Icons.phone,
-                              color: Colors.white,
+                              color: Color(0xFFF5F5F5),
                             ),
                             prefixText: " (251) 9",
                             prefixStyle: TextStyle(
@@ -63,10 +63,10 @@ class RegisterNewUserPage extends StatelessWidget {
                                 color: Color(0xAAFFFFFF),
                                 fontWeight: FontWeight.bold),
                           ),
-                          cursorColor: Colors.white,
+                          cursorColor: Color(0xFFF5F5F5),
                           style: TextStyle(
                               fontSize: 23.0,
-                              color: Colors.white,
+                              color: Color(0xFFF5F5F5),
                               fontWeight: FontWeight.bold),
                         ),
                         height: 60.0,
@@ -101,18 +101,18 @@ class RegisterNewUserPage extends StatelessWidget {
                             border: InputBorder.none,
                             prefixIcon: Icon(
                               Icons.person,
-                              color: Colors.white,
+                              color: Color(0xFFF5F5F5),
                             ),
                             hintText: "Your Full Name",
                             hintStyle: TextStyle(
                               fontSize: 23.0,
-                              color: Colors.white,
+                              color: Color(0xFFF5F5F5),
                             ),
                           ),
-                          cursorColor: Colors.white,
+                          cursorColor: Color(0xFFF5F5F5),
                           style: TextStyle(
                               fontSize: 23.0,
-                              color: Colors.white,
+                              color: Color(0xFFF5F5F5),
                               fontWeight: FontWeight.bold),
                         ),
                         height: 60.0,
@@ -151,21 +151,21 @@ class RegisterNewUserPage extends StatelessWidget {
                             hintText: "Your Password",
                             hintStyle: TextStyle(
                                 fontSize: 23.0,
-                                color: Colors.white,
+                                color: Color(0xFFF5F5F5),
                                 fontWeight: FontWeight.bold),
                             prefixIcon: Icon(
                               Icons.lock,
-                              color: Colors.white,
+                              color: Color(0xFFF5F5F5),
                             ),
                             prefixStyle: TextStyle(
                                 fontSize: 23.0,
-                                color: Colors.white,
+                                color: Color(0xFFF5F5F5),
                                 fontWeight: FontWeight.bold),
                           ),
-                          cursorColor: Colors.white,
+                          cursorColor: Color(0xFFF5F5F5),
                           style: TextStyle(
                               fontSize: 23.0,
-                              color: Colors.white,
+                              color: Color(0xFFF5F5F5),
                               fontWeight: FontWeight.bold),
                         ),
                         height: 60.0,
@@ -185,7 +185,7 @@ class RegisterNewUserPage extends StatelessWidget {
                             const EdgeInsets.only(top: 21, left: 12, right: 12),
                         child: RaisedButton(
                           onPressed: () => {},
-                          color: Colors.white,
+                          color: Color(0xFFF5F5F5),
                           child: Container(
                             alignment: Alignment.center,
                             child: Text(
@@ -214,7 +214,7 @@ class RegisterNewUserPage extends StatelessWidget {
                               text: TextSpan(
                                   style: TextStyle(
                                       fontSize: 21.0,
-                                      color: Colors.white,
+                                      color: Color(0xFFF5F5F5),
                                       decoration: TextDecoration.underline,
                                       fontWeight: FontWeight.bold),
                                   text: "Go back to login",

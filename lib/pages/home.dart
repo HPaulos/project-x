@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
             child: Text(
               'Project-X',
               style: TextStyle(
-                  color: Colors.white,
+                  color: Color(0xFFF5F5F5),
                   fontSize: 29,
                   fontWeight: FontWeight.bold),
             ),
@@ -51,34 +51,34 @@ class _HomeState extends State<Home> {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.list,
-                color: selectedIndex == 0 ? Colors.black : Colors.white,
+                color: selectedIndex == 0 ? Colors.black : Color(0xFFF5F5F5),
                 size: 29,
               ),
               title: Text(
                 'Home',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Color(0xFFF5F5F5)),
               ),
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.history,
-                color: selectedIndex == 1 ? Colors.black : Colors.white,
+                color: selectedIndex == 1 ? Colors.black : Color(0xFFF5F5F5),
                 size: 29,
               ),
               title: Text(
                 'History',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Color(0xFFF5F5F5)),
               ),
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.settings,
-                color: selectedIndex == 2 ? Colors.black : Colors.white,
+                color: selectedIndex == 2 ? Colors.black : Color(0xFFF5F5F5),
                 size: 29,
               ),
               title: Text(
                 'Profile',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Color(0xFFF5F5F5)),
               ),
             ),
           ],

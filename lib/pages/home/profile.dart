@@ -24,7 +24,7 @@ class Profile extends StatelessWidget {
                       "Logout",
                       style: TextStyle(
                           fontSize: 29.0,
-                          color: Colors.white,
+                          color: Color(0xFFF5F5F5),
                           fontWeight: FontWeight.bold),
                     ),
                     height: 60.0,

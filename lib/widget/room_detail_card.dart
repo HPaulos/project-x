@@ -215,7 +215,7 @@ class RoomDetailCard extends StatelessWidget {
                           ),
                         )
                       ],
-                      color: Colors.white,
+                      color: Color(0xFFF5F5F5),
                       borderRadius: BorderRadius.only(
                         bottomRight: Radius.circular(21),
                       )),

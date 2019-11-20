@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-class Room {
+class RoomDetails {
   Image primaryImageUrl;
   String type;
   double originalPrice;
@@ -8,7 +8,7 @@ class Room {
   bool isAvaliable;
   double priceAfterDiscount;
 
-  Room({
+  RoomDetails({
     @required this.type,
     @required this.originalPrice,
     @required this.discountInPercent,

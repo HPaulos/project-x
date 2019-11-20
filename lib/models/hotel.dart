@@ -1,4 +1,4 @@
-import 'package:booker/models/rooml.dart';
+import 'package:booker/models/room_details.dart';
 import 'package:flutter/cupertino.dart';
 
 class Hotel {
@@ -6,7 +6,7 @@ class Hotel {
   double distance;
   List<String> accomodations;
   double rate;
-  List<Room> rooms;
+  List<RoomDetails> rooms;
 
   Hotel(
       {@required this.name,

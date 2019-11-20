@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
           })),
       title: 'Gojo',
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: SafeArea(child: LoginPage()),
       routes: <String, WidgetBuilder>{
-        "/home": (BuildContext context) => Home(),
-        '/login': (context) => LoginPage(),
-        '/register': (context) => RegisterNewUserPage(),
+        "/home": (BuildContext context) => SafeArea(child: Home()),
+        '/login': (context) => SafeArea(child: LoginPage()),
+        '/register': (context) => SafeArea(child: RegisterNewUserPage()),
       },
     );
   }

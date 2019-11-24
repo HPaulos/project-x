@@ -1,7 +1,6 @@
 import 'package:booker/models/hotel.dart';
 import 'package:booker/models/room_details.dart';
 import 'package:booker/widget/room_detail_card.dart';
-import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -93,85 +92,61 @@ class SearchBar extends StatelessWidget {
               ],
             ),
           ),
-          Container(
+          new FilterBar()
+        ],
+      ),
+    );
+  }
+}
+
+class FilterBar extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _FilterBarState();
+  }
+}
+
+class _FilterBarState extends State<FilterBar> {
+  bool showFilters = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Visibility(
+          visible: showFilters,
+          child: Container(
             child: Row(
               children: <Widget>[
                 Expanded(
                   flex: 1,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 7, top: 5, bottom: 7),
-                    child: DecoratedBox(
-                        decoration: BoxDecoration(
-                            color: Color(0xFFF5F5F5),
-                            border: Border(
-                                right: BorderSide(
-                                    width: 3.0, color: Colors.redAccent))),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 5.0),
-                          child: Container(
-                            child: Column(
-                              children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    Text(
-                                      "Check in",
-                                      style: TextStyle(fontSize: 12),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                    Text(
-                                      "Nov 13, 2019",
-                                      style: TextStyle(fontSize: 19),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        )),
+                    padding: const EdgeInsets.only(
+                        left: 5, right: 5, top: 5, bottom: 5),
+                    child: DatePicker(
+                      name: "Check in",
+                      color: Color(0xA055FF55),
+                    ),
                   ),
                 ),
                 Expanded(
                   flex: 1,
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 7, top: 5, bottom: 7),
-                    child: DecoratedBox(
-                        decoration: BoxDecoration(
-                            color: Color(0xFFF5F5F5),
-                            border: Border(
-                                right: BorderSide(
-                                    width: 3.0, color: Colors.blueAccent))),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 5.0),
-                          child: Column(
-                            children: <Widget>[
-                              Row(
-                                children: <Widget>[
-                                  Text(
-                                    "Check out",
-                                    style: TextStyle(fontSize: 12),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Text(
-                                    "Nov 12, 2019",
-                                    style: TextStyle(fontSize: 19),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        )),
+                    padding: const EdgeInsets.only(
+                        left: 5, right: 5, top: 5, bottom: 5),
+                    child: DatePicker(
+                      name: "Check out",
+                      color: Color(0xA0FF5555),
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          Container(
+        ),
+        Visibility(
+          visible: showFilters,
+          child: Container(
             child: Row(
               children: <Widget>[
                 Expanded(
@@ -238,8 +213,128 @@ class SearchBar extends StatelessWidget {
                 )
               ],
             ),
-          )
-        ],
+          ),
+        ),
+        Visibility(
+          visible: showFilters,
+          child: Padding(
+            padding:
+                const EdgeInsets.only(left: 7, right: 7, top: 5, bottom: 5),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: MaterialButton(
+                    color: Color(0xA055FF55),
+                    minWidth: double.maxFinite,
+                    onPressed: () {},
+                    child: Text("Filter Search"),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        Container(
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+                color: Color(0xFF53B4DF),
+                border: Border(
+                  right: BorderSide(width: 3.0, color: Colors.redAccent),
+                  left: BorderSide(width: 3.0, color: Colors.redAccent),
+                )),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16, right: 7),
+              child: Row(
+                children: <Widget>[
+                  Text(
+                    "241 Rooms Found",
+                    style: TextStyle(color: Color(0xFFF5F5F5), fontSize: 16),
+                  ),
+                  Spacer(),
+                  IconButton(
+                    icon: Icon(
+                      Icons.filter_list,
+                      color: Color(0xFFF5F5F5),
+                      size: 29,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        showFilters = !showFilters;
+                      });
+                    },
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class DatePicker extends StatefulWidget {
+  final String name;
+  final Color color;
+  DatePicker({this.name, this.color});
+
+  @override
+  State<StatefulWidget> createState() {
+    return _DatePickerState();
+  }
+}
+
+class _DatePickerState extends State<DatePicker> {
+  String _value = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _value = DateFormat('MMM dd, yyyy').format(DateTime.now());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      color: widget.color,
+      onPressed: () async {
+        Future<DateTime> selectedDate = showDatePicker(
+          context: context,
+          initialDate: DateTime.now(),
+          firstDate: DateTime(2018),
+          lastDate: DateTime(2030),
+          builder: (BuildContext context, Widget child) {
+            return Theme(
+              data: Theme.of(context),
+              child: child,
+            );
+          },
+        );
+
+        DateTime date = await selectedDate;
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(top: 5, bottom: 5),
+        child: Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Text(
+                  widget.name,
+                  style: TextStyle(fontSize: 12),
+                ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Text(
+                  _value,
+                  style: TextStyle(fontSize: 19),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

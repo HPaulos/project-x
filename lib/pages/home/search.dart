@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:booker/models/hotel.dart';
 import 'package:booker/models/room_details.dart';
 import 'package:booker/widget/room_detail_card.dart';
@@ -125,7 +127,7 @@ class _FilterBarState extends State<FilterBar> {
                         left: 5, right: 5, top: 5, bottom: 5),
                     child: DatePicker(
                       name: "Check in",
-                      color: Color(0xA055FF55),
+                      color: Color(0xA03CB371),
                     ),
                   ),
                 ),
@@ -152,7 +154,8 @@ class _FilterBarState extends State<FilterBar> {
                 Expanded(
                   flex: 1,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 7.0),
+                    padding: const EdgeInsets.only(
+                        left: 5, right: 5, top: 3, bottom: 3),
                     child: DecoratedBox(
                         decoration: BoxDecoration(
                             color: Color(0xFFF5F5F5),
@@ -172,7 +175,20 @@ class _FilterBarState extends State<FilterBar> {
                                     ),
                                   ),
                                   Spacer(),
-                                  NumberDropDown()
+                                  NumberDropDown(
+                                    options: <String>[
+                                      '1',
+                                      '2',
+                                      '3',
+                                      '4',
+                                      '5',
+                                      '6',
+                                      '7',
+                                      '8',
+                                      '9',
+                                      '10'
+                                    ],
+                                  )
                                 ],
                               ),
                             ],
@@ -183,7 +199,8 @@ class _FilterBarState extends State<FilterBar> {
                 Expanded(
                   flex: 1,
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 7.0),
+                    padding: const EdgeInsets.only(
+                        left: 5, right: 5, top: 3, bottom: 3),
                     child: DecoratedBox(
                         decoration: BoxDecoration(
                             color: Color(0xFFF5F5F5),
@@ -203,7 +220,21 @@ class _FilterBarState extends State<FilterBar> {
                                     ),
                                   ),
                                   Spacer(),
-                                  NumberDropDown()
+                                  NumberDropDown(
+                                    options: <String>[
+                                      '0',
+                                      '1',
+                                      '2',
+                                      '3',
+                                      '4',
+                                      '5',
+                                      '6',
+                                      '7',
+                                      '8',
+                                      '9',
+                                      '10'
+                                    ],
+                                  )
                                 ],
                               ),
                             ],
@@ -224,7 +255,7 @@ class _FilterBarState extends State<FilterBar> {
               children: <Widget>[
                 Expanded(
                   child: MaterialButton(
-                    color: Color(0xA055FF55),
+                    color: Color(0xA03CB371),
                     minWidth: double.maxFinite,
                     onPressed: () {},
                     child: Text("Filter Search"),
@@ -252,11 +283,20 @@ class _FilterBarState extends State<FilterBar> {
                   ),
                   Spacer(),
                   IconButton(
-                    icon: Icon(
-                      Icons.filter_list,
-                      color: Color(0xFFF5F5F5),
-                      size: 29,
-                    ),
+                    icon: showFilters
+                        ? Transform.rotate(
+                          angle: 180 * pi / 180,
+                            child: Icon(
+                              Icons.filter_list,
+                              color: Color(0xFFF5F5F5),
+                              size: 29,
+                            ),
+                          )
+                        : Icon(
+                            Icons.filter_list,
+                            color: Color(0xFFF5F5F5),
+                            size: 29,
+                          ),
                     onPressed: () {
                       setState(() {
                         showFilters = !showFilters;
@@ -298,11 +338,22 @@ class _DatePickerState extends State<DatePicker> {
     return RaisedButton(
       color: widget.color,
       onPressed: () async {
+        var now = DateTime.now();
+        var intialDate;
+        if (_value != null) {
+          intialDate = DateFormat('MMM dd, yyyy').parse(_value);
+        } else {
+          intialDate = now;
+        }
+
         Future<DateTime> selectedDate = showDatePicker(
           context: context,
-          initialDate: DateTime.now(),
-          firstDate: DateTime(2018),
-          lastDate: DateTime(2030),
+          initialDate: intialDate,
+          firstDate: DateTime(now.year),
+          lastDate: DateTime(now.year + 2),
+          selectableDayPredicate: (date) {
+            return true;
+          },
           builder: (BuildContext context, Widget child) {
             return Theme(
               data: Theme.of(context),
@@ -310,8 +361,10 @@ class _DatePickerState extends State<DatePicker> {
             );
           },
         );
-
         DateTime date = await selectedDate;
+        setState(() {
+          _value = DateFormat('MMM dd, yyyy').format(date);
+        });
       },
       child: Padding(
         padding: const EdgeInsets.only(top: 5, bottom: 5),
@@ -341,6 +394,10 @@ class _DatePickerState extends State<DatePicker> {
 }
 
 class NumberDropDown extends StatefulWidget {
+  List<String> options;
+
+  NumberDropDown({@required this.options});
+
   @override
   State<StatefulWidget> createState() {
     return _NumberDropDownState();
@@ -351,11 +408,18 @@ class _NumberDropDownState extends State<NumberDropDown> {
   String _selectedValue = '1';
 
   @override
+  void initState() {
+    super.initState();
+    _selectedValue = widget.options[0];
+  }
+
+  @override
   Widget build(BuildContext context) {
     return DropdownButtonHideUnderline(
       child: DropdownButton<String>(
+        isDense: true,
         value: _selectedValue,
-        items: <String>['1', '2', '3', '4', '5', '6', '7'].map((String value) {
+        items: widget.options.map((String value) {
           return DropdownMenuItem<String>(
             value: value,
             child: Text(

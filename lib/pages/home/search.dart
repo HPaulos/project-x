@@ -161,7 +161,13 @@ class _FilterBarState extends State<FilterBar> {
                             color: Color(0xFFF5F5F5),
                             border: Border(
                                 right: BorderSide(
-                                    width: 3.0, color: Colors.redAccent))),
+                                  width: 3.0,
+                                  color: Color(0xA03CB371),
+                                ),
+                                left: BorderSide(
+                                  width: 3.0,
+                                  color: Color(0xA03CB371),
+                                ))),
                         child: Container(
                           child: Column(
                             children: <Widget>[
@@ -206,7 +212,13 @@ class _FilterBarState extends State<FilterBar> {
                             color: Color(0xFFF5F5F5),
                             border: Border(
                                 right: BorderSide(
-                                    width: 3.0, color: Colors.blueAccent))),
+                                  width: 3.0,
+                                  color: Color(0xA0FF5555),
+                                ),
+                                left: BorderSide(
+                                  width: 3.0,
+                                  color: Color(0xA0FF5555),
+                                ))),
                         child: Container(
                           child: Column(
                             children: <Widget>[
@@ -285,7 +297,7 @@ class _FilterBarState extends State<FilterBar> {
                   IconButton(
                     icon: showFilters
                         ? Transform.rotate(
-                          angle: 180 * pi / 180,
+                            angle: 180 * pi / 180,
                             child: Icon(
                               Icons.filter_list,
                               color: Color(0xFFF5F5F5),

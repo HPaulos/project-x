@@ -368,7 +368,13 @@ class _DatePickerState extends State<DatePicker> {
           },
           builder: (BuildContext context, Widget child) {
             return Theme(
-              data: Theme.of(context),
+              data: Theme.of(context).copyWith(
+                primaryColor: widget.color,
+                accentColor: widget.color,
+                highlightColor: widget.color,
+                splashColor: widget.color,
+                cursorColor: widget.color
+              ),
               child: child,
             );
           },

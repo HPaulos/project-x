@@ -1,8 +1,6 @@
 With God all is possible!!!
 # booker
 
-A new Flutter project.
-
 ## Getting Started
 
 This project is a starting point for a Flutter application.
